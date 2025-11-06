@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💗 Wahi Jo Kabhi Dur Tha – For Mahiii 💗</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@400;500&display=swap');
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffd1dc, #ffe6f0);
+      overflow-x: hidden;
+    }
+
+    /* Floating hearts background */
+    .heart {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      background-color: pink;
+      clip-path: path("M10,30 A10,10 0 0,1 30,30 Q30,50 10,70 Q-10,50 -10,30 A10,10 0 0,1 10,30 Z");
+      opacity: 0.6;
+      animation: floatHearts 6s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes floatHearts {
+      0% { transform: translateY(100vh) scale(0.6) rotate(0deg); opacity: 0.8; }
+      100% { transform: translateY(-10vh) scale(1.2) rotate(360deg); opacity: 0; }
+    }
+
+    /* Password screen */
+    .password-screen {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffb6c1, #ffcce0);
+      z-index: 100;
+    }
+
+    .password-screen input {
+      padding: 10px 15px;
+      border-radius: 10px;
+      border: 2px solid #fff;
+      font-size: 16px;
+      text-align: center;
+      outline: none;
+    }
+
+    .password-screen button {
+      margin-top: 15px;
+      padding: 8px 20px;
+      border: none;
+      border-radius: 20px;
+      background-color: #ff6f91;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .password-screen button:hover {
+      background-color: #ff5c85;
+    }
+
+    /* Main poem content */
+    .content {
+      display: none;
+      text-align: center;
+      padding: 50px 20px 100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.5em;
+      color: #ff4d79;
+      margin-bottom: 5px;
+    }
+
+    h3 {
+      color: #ff80a6;
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.9;
+      color: #333;
+      max-width: 850px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.7);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      backdrop-filter: blur(6px);
+      white-space: pre-line;
+    }
+
+    footer {
+      margin-top: 40px;
+      color: #777;
+      font-size: 14px;
+    }
+
+    /* Animated Boy & Girl SVG */
+    .couple {
+      width: 200px;
+      margin: 20px auto;
+      position: relative;
+      animation: float 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-15px); }
+    }
+
+    .boy, .girl {
+      position: absolute;
+      width: 80px;
+      height: 120px;
+      background: #ffb6c1;
+      border-radius: 20px;
+    }
+
+    .boy {
+      left: 0;
+      background: linear-gradient(180deg, #87cefa, #4682b4);
+    }
+
+    .girl {
+      right: 0;
+      background: linear-gradient(180deg, #ffb6c1, #ff69b4);
+    }
+
+    .heartBetween {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translateX(-50%);
+      color: red;
+      font-size: 24px;
+      animation: beat 1s infinite;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: translateX(-50%) scale(1); }
+      50% { transform: translateX(-50%) scale(1.3); }
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #ff80a6;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+
+
+  
+
+   <!-- Background Music -->
+  <audio id="bgm" loop>
+      <source src="bd1.mp3" type="audio/mpeg">
+    </audio>
+
+    <button onclick="playMusic()" class="music-btn">🎵 Play Music</button>
+
+    <script>
+    function playMusic(){
+      document.getElementById("bgm").play();
+    }
+    </script>
+
+
+
+
+
+  <!-- Floating hearts randomly -->
+  <script>
+    for(let i=0; i<20; i++){
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = (4 + Math.random()*3) + 's';
+      document.body.appendChild(heart);
+    }
+  </script>
+
+  <!-- Password Screen -->
+  <div class="password-screen" id="lock">
+    <h2 style="color:white;">🔒 Enter Password</h2>
+    <input type="password" id="passwordInput" placeholder="Enter password..." />
+    <button onclick="checkPassword()">Unlock</button>
+  </div>
+
+  <!-- Poem Content -->
+  <div class="content" id="content">
+    <h1>💗 “Wahi Dost, Jo Ab Jaan Ban Gaya”</h1>
+    <h3>(For My Best Friend – Mahiii)</h3>
+
+    <!-- Animated Couple -->
+    <div class="couple">
+      <div class="boy"></div>
+      <div class="heartBetween">❤️</div>
+      <div class="girl"></div>
+    </div>
+
+<p>
+Kahani shuru hoti hai un dinon se,
+Kabhi school me the hum,
+aur kabhi baat hi nahi hui.
+Ek jaane-anjaane si khamoshi thi,
+par dil ke kone me ek mehsoos chhupi hui.
+
+Fir time ne ek twist maara —
+Zindagi badli, raaste naye hue,
+aur college ne ek nayi city di.
+Na jaane kaise, usi sheher me
+tum bhi the — par mujhe khabar tak nahi.
+
+Ek din, dur se nazar mili…
+aankhon ne pehchaan liya,
+par zubaan chup rahi.
+
+Hum dono confuse the,
+jaise dil keh raha ho —
+“kya ye wahi hai?”
+dil 99% pe atka hua! 😂
+
+Fir waqt ne tasveer saaf ki,
+aur dil ne kaha,
+“haan, wahi hai…”
+
+Dur se dekha, aankhon ne pehchaan liya,
+Us din kuch keh nahi paayi,
+aur agle din kya hua?
+Wo mujhe dekh kar route hi badal gaya!
+jaise main traffic police hu 🚦
+
+Mann me awaaz aayi —
+“Oye hero! Mujhse bachke kaha jaa raha hai?” 🎬
+
+Dheere-dheere chat pe baatein shuru hui,
+ek “hi” se kahani likhi gayi.
+Har line me ek nayi smile thi,
+har message me ek sukoon sa tha.
+
+Notes dene ke bahane milna shuru hua,
+par asli notes to dil me likhe ja rahe the 💌
+
+Aur fir, wo din bhi aaya —
+jab hum dost bane,
+aur dheere-dheere…
+best friends.
+
+Wo jo mujhse door jata tha,
+wahi ab sabse zyada kareeb hai.
+
+Kabhi socha nahi tha,
+ek route-change karne wala insaan,
+meri life ka permanent route ban jayega 💗
+
+Shayad isi ko kehte hain kismet —
+jab do raaste,
+saalon baad bhi
+ek hi manzil par mil jaate hain 💗
+</p>
+
+    <footer>Made with 💖 by Achal for Mahiii</footer>
+  </div>
+
+
+ <script>
+const poem = document.querySelector("p");
+const text = poem.innerText;
+poem.innerText = "";
+let i = 0;
+function typePoem() {
+  if (i < text.length) {
+    poem.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typePoem, 50); // speed adjust
+  }
+}
+window.onload = () => {
+  poem.innerText = "";
+};
+function checkPassword() {
+  const input = document.getElementById("passwordInput").value;
+  if (input === "mahiiiachal2508") {
+    document.getElementById("lock").style.display = "none";
+    document.getElementById("content").style.display = "block";
+    document.body.style.overflowY = "auto";
+    typePoem(); // poem starts typing
+  } else {
+    alert("❌ Wrong password! Try again."); //mahiiiachal2508
+  }
+}
+</script>
+
+</body>
+</html> 
